@@ -56,6 +56,7 @@ const fallbackData = {
             pinned: true
         }
     ],
+    pinnedRepos: ['DataFlow', 'mathcore', 'gwf-cli', 'MathFlow'],
     events: [
         {
             type: 'PushEvent',
