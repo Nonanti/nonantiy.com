@@ -114,10 +114,7 @@ function displayRepositories(repos) {
         const languageColor = getLanguageColor(repo.language);
         
         repoCard.innerHTML = `
-            <div class="repo-header">
-                <i class="fas fa-book"></i>
-                <span class="repo-name">${repo.name}</span>
-            </div>
+            <div class="repo-name">${repo.name}</div>
             <p class="repo-description">${repo.description || 'No description provided'}</p>
             <div class="repo-stats">
                 ${repo.language ? `
@@ -127,10 +124,10 @@ function displayRepositories(repos) {
                     </span>
                 ` : ''}
                 <span class="repo-stat">
-                    <i class="fas fa-star"></i> ${repo.stargazers_count}
+                    ${repo.stargazers_count} stars
                 </span>
                 <span class="repo-stat">
-                    <i class="fas fa-code-branch"></i> ${repo.forks_count}
+                    ${repo.forks_count} forks
                 </span>
             </div>
         `;
