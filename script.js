@@ -19,7 +19,7 @@ async function fetchGitHubData() {
             const pinnedRepos = allRepos.filter(repo => repo.pinned);
         displayRepositories(pinnedRepos.length > 0 ? pinnedRepos : allRepos.slice(0, 4));
             calculateLanguageStats();
-            displayActivity(fallbackData.events);
+            // Activity section removed
             return;
         }
         
@@ -56,7 +56,7 @@ async function fetchGitHubData() {
             const pinnedRepos = allRepos.filter(repo => repo.pinned);
         displayRepositories(pinnedRepos.length > 0 ? pinnedRepos : allRepos.slice(0, 4));
             calculateLanguageStats();
-            displayActivity(fallbackData.events);
+            // Activity section removed
         } else {
             showError();
         }
@@ -193,59 +193,7 @@ function displayLanguageChart(languages, total) {
     chartContainer.appendChild(languageList);
 }
 
-function displayActivity(events) {
-    const activityList = document.getElementById('activity-list');
-    activityList.innerHTML = '';
-    
-    const filteredEvents = events.slice(0, 5);
-    
-    filteredEvents.forEach(event => {
-        const item = document.createElement('div');
-        item.className = 'activity-item';
-        
-        const date = new Date(event.created_at).toLocaleDateString('en-US', {
-            month: 'short',
-            day: 'numeric',
-            year: 'numeric'
-        });
-        
-        let description = '';
-        switch(event.type) {
-            case 'PushEvent':
-                const commits = event.payload.commits?.length || 0;
-                description = `Pushed ${commits} commit${commits !== 1 ? 's' : ''} to ${event.repo.name}`;
-                break;
-            case 'CreateEvent':
-                description = `Created ${event.payload.ref_type} ${event.payload.ref || ''} in ${event.repo.name}`;
-                break;
-            case 'PullRequestEvent':
-                description = `${event.payload.action} pull request in ${event.repo.name}`;
-                break;
-            case 'IssuesEvent':
-                description = `${event.payload.action} issue in ${event.repo.name}`;
-                break;
-            case 'WatchEvent':
-                description = `Starred ${event.repo.name}`;
-                break;
-            case 'ForkEvent':
-                description = `Forked ${event.repo.name}`;
-                break;
-            default:
-                description = `${event.type.replace('Event', '')} in ${event.repo.name}`;
-        }
-        
-        item.innerHTML = `
-            <div class="activity-date">${date}</div>
-            <div class="activity-description">${description}</div>
-        `;
-        
-        activityList.appendChild(item);
-    });
-    
-    if (filteredEvents.length === 0) {
-        activityList.innerHTML = '<p style="color: var(--text-secondary); text-align: center;">No recent public activity</p>';
-    }
-}
+// Activity display function removed
 
 function getLanguageColor(language) {
     const colors = {
