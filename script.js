@@ -16,7 +16,8 @@ async function fetchGitHubData() {
             console.log('Using local fallback data');
             updateProfile(fallbackData.user);
             allRepos = fallbackData.repos;
-            displayRepositories(allRepos.slice(0, 6));
+            const pinnedRepos = allRepos.filter(repo => repo.pinned);
+        displayRepositories(pinnedRepos.length > 0 ? pinnedRepos : allRepos.slice(0, 4));
             calculateLanguageStats();
             displayActivity(fallbackData.events);
             return;
@@ -35,12 +36,13 @@ async function fetchGitHubData() {
         const reposResponse = await fetch(`${CORS_PROXY}${API_BASE}/users/${GITHUB_USERNAME}/repos?per_page=100&sort=updated`);
         allRepos = await reposResponse.json();
         
-        displayRepositories(allRepos.slice(0, 6));
+        const pinnedRepos = allRepos.filter(repo => repo.pinned);
+        displayRepositories(pinnedRepos.length > 0 ? pinnedRepos : allRepos.slice(0, 4));
         calculateLanguageStats();
         
         const eventsResponse = await fetch(`${CORS_PROXY}${API_BASE}/users/${GITHUB_USERNAME}/events/public?per_page=10`);
         const events = await eventsResponse.json();
-        displayActivity(events);
+        // Activity section removed
         
     } catch (error) {
         console.error('Error fetching GitHub data:', error);
@@ -51,7 +53,8 @@ async function fetchGitHubData() {
             console.log('Using fallback data due to API error');
             updateProfile(fallbackData.user);
             allRepos = fallbackData.repos;
-            displayRepositories(allRepos.slice(0, 6));
+            const pinnedRepos = allRepos.filter(repo => repo.pinned);
+        displayRepositories(pinnedRepos.length > 0 ? pinnedRepos : allRepos.slice(0, 4));
             calculateLanguageStats();
             displayActivity(fallbackData.events);
         } else {
@@ -299,13 +302,15 @@ function showError() {
 document.getElementById('repos-btn').addEventListener('click', () => {
     const reposSection = document.getElementById('repos-section');
     const reposGrid = document.getElementById('repos-grid');
+    const pinnedRepos = allRepos.filter(repo => repo.pinned);
+    const displayRepos = pinnedRepos.length > 0 ? pinnedRepos : allRepos.slice(0, 4);
     
-    if (reposGrid.children.length === 6) {
+    if (reposGrid.children.length === displayRepos.length && allRepos.length > displayRepos.length) {
         displayRepositories(allRepos);
-        document.getElementById('repos-btn').innerHTML = '<i class="fas fa-compress"></i> Show Less';
+        document.getElementById('repos-btn').innerHTML = '<i class="fas fa-compress"></i> show less';
     } else {
-        displayRepositories(allRepos.slice(0, 6));
-        document.getElementById('repos-btn').innerHTML = '<i class="fas fa-code"></i> View All Repositories';
+        displayRepositories(displayRepos);
+        document.getElementById('repos-btn').innerHTML = '<i class="fas fa-folder"></i> all projects';
     }
     
     reposSection.scrollIntoView({ behavior: 'smooth' });

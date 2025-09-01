@@ -45,9 +45,9 @@ body {
 }
 
 .avatar {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    border-radius: 4px;
     margin-bottom: 1.5rem;
     filter: grayscale(100%);
     transition: filter 0.3s ease;
@@ -277,41 +277,6 @@ body {
     color: var(--text-dim);
 }
 
-.activity-section {
-    margin-bottom: 4rem;
-}
-
-.activity-list {
-    border-left: 1px solid var(--border);
-    padding-left: 1.5rem;
-}
-
-.activity-item {
-    margin-bottom: 1.5rem;
-    position: relative;
-}
-
-.activity-item::before {
-    content: '';
-    position: absolute;
-    left: -1.5rem;
-    top: 0.5rem;
-    width: 5px;
-    height: 5px;
-    background: var(--text-dim);
-    border-radius: 50%;
-    transform: translateX(-3px);
-}
-
-.activity-date {
-    color: var(--text-dim);
-    font-size: 0.8rem;
-    margin-bottom: 0.25rem;
-}
-
-.activity-description {
-    font-size: 0.9rem;
-}
 
 .theme-toggle {
     position: fixed;

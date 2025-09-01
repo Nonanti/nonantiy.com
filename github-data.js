@@ -22,7 +22,8 @@ const fallbackData = {
             language: 'C#',
             stargazers_count: 103,
             forks_count: 6,
-            size: 2048
+            size: 2048,
+            pinned: true
         },
         {
             name: 'mathcore',
@@ -31,7 +32,8 @@ const fallbackData = {
             language: 'Rust',
             stargazers_count: 30,
             forks_count: 1,
-            size: 1536
+            size: 1536,
+            pinned: true
         },
         {
             name: 'gwf-cli',
@@ -40,7 +42,8 @@ const fallbackData = {
             language: 'Rust',
             stargazers_count: 3,
             forks_count: 0,
-            size: 512
+            size: 512,
+            pinned: true
         },
         {
             name: 'MathFlow',
@@ -49,25 +52,8 @@ const fallbackData = {
             language: 'C#',
             stargazers_count: 41,
             forks_count: 2,
-            size: 1024
-        },
-        {
-            name: 'backend-roadmap',
-            description: 'My journey to becoming a backend developer',
-            html_url: 'https://github.com/Nonanti/backend-roadmap',
-            language: 'Markdown',
-            stargazers_count: 5,
-            forks_count: 0,
-            size: 256
-        },
-        {
-            name: 'rustlings-solutions',
-            description: 'My solutions to the Rustlings exercises',
-            html_url: 'https://github.com/Nonanti/rustlings-solutions',
-            language: 'Rust',
-            stargazers_count: 2,
-            forks_count: 0,
-            size: 384
+            size: 1024,
+            pinned: true
         }
     ],
     events: [
