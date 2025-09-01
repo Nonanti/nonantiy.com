@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nonanti - GitHub Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="profile-section">
+            <div class="avatar-container">
+                <img src="" alt="Profile" class="avatar" id="avatar">
+                <div class="status-indicator"></div>
+            </div>
+            <h1 class="name" id="name">Loading...</h1>
+            <p class="username" id="username">@nonanti</p>
+            <p class="bio" id="bio"></p>
+            
+            <div class="stats">
+                <div class="stat-item">
+                    <i class="fas fa-book"></i>
+                    <div>
+                        <span class="stat-number" id="repos">0</span>
+                        <span class="stat-label">Repositories</span>
+                    </div>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-users"></i>
+                    <div>
+                        <span class="stat-number" id="followers">0</span>
+                        <span class="stat-label">Followers</span>
+                    </div>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-user-friends"></i>
+                    <div>
+                        <span class="stat-number" id="following">0</span>
+                        <span class="stat-label">Following</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-section">
+                <div class="info-item" id="location-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span id="location"></span>
+                </div>
+                <div class="info-item" id="company-item">
+                    <i class="fas fa-building"></i>
+                    <span id="company"></span>
+                </div>
+                <div class="info-item" id="blog-item">
+                    <i class="fas fa-link"></i>
+                    <a href="#" id="blog" target="_blank"></a>
+                </div>
+                <div class="info-item" id="twitter-item">
+                    <i class="fab fa-twitter"></i>
+                    <a href="#" id="twitter" target="_blank"></a>
+                </div>
+                <div class="info-item" id="discord-item">
+                    <i class="fab fa-discord"></i>
+                    <span>nonantiy</span>
+                </div>
+            </div>
+
+            <div class="buttons">
+                <a href="https://github.com/Nonanti" target="_blank" class="btn btn-primary">
+                    <i class="fab fa-github"></i> GitHub Profile
+                </a>
+                <button class="btn btn-secondary" id="repos-btn">
+                    <i class="fas fa-code"></i> View Repositories
+                </button>
+            </div>
+        </div>
+
+        <div class="repos-section" id="repos-section">
+            <h2 class="section-title">Popular Repositories</h2>
+            <div class="repos-grid" id="repos-grid">
+                <!-- Repositories will be loaded here -->
+            </div>
+        </div>
+
+        <div class="languages-section">
+            <h2 class="section-title">Top Languages</h2>
+            <div class="languages-chart" id="languages-chart">
+                <!-- Language stats will be loaded here -->
+            </div>
+        </div>
+
+        <div class="activity-section">
+            <h2 class="section-title">Recent Activity</h2>
+            <div class="activity-list" id="activity-list">
+                <!-- Activity will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <div class="theme-toggle">
+        <button id="theme-btn" aria-label="Toggle theme">
+            <i class="fas fa-moon"></i>
+        </button>
+    </div>
+
+    <footer>
+        <p>Made with <span class="heart">❤️</span> by Nonanti</p>
+    </footer>
+
+    <script src="github-data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
