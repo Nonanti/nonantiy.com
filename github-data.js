@@ -2,7 +2,7 @@
 const fallbackData = {
     user: {
         login: 'Nonanti',
-        name: 'Berkant Nonanti',
+        name: 'Berkant Tarhan',
         avatar_url: 'https://avatars.githubusercontent.com/u/45326482?v=4',
         bio: 'dotnet developer, trying to learn Rust. Hope to be a good backend developer in the future.',
         public_repos: 25,
